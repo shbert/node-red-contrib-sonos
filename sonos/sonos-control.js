@@ -16,13 +16,53 @@ module.exports = function(RED) {
             var payload = typeof msg.payload === 'object' ? msg.payload : {};
 			var client = new sonos.Sonos(playnode.ipaddress);
 			
-			switch (n.mode) {
+			var mode_to_set = "play";
+
+			if (payload.mode) {
+				switch (payload.mode) {
+					case "pause":
+						mode_to_set = "pause";
+						node.log("pause requested");
+						break;
+					case "stop":
+						mode_to_set = "stop";
+						node.log("stop requested");
+						break;
+					case "play":
+						mode_to_set = "play";
+						node.log("play requested");
+						break;
+				}
+			}
+			if (payload.track) {
+				switch (payload.track) {
+					case "next":	
+						client.next(function(err, result) {
+							msg.payload = result;
+							node.log(JSON.stringify(err));
+							//node.log(JSON.stringify(result));
+							node.log("next track requested");
+						});
+						break;
+					case "previous":
+						client.previous(function(err, result) {
+							msg.payload = result;
+							node.log(JSON.stringify(err));
+							//node.log(JSON.stringify(result));
+							node.log("previous track requested");
+						});
+						break;
+				}
+			}
+			
+			switch (mode_to_set) {
 				case "pause":
 					client.pause(function(err, result) {
 						msg.payload = result;
 						node.log(JSON.stringify(err));
 						//node.log(JSON.stringify(result));
 						node.log("paused");
+						node.status({fill:"red",shape:"dot",text:"paused"});
 					});
 					break;
 				case "stop":
@@ -31,6 +71,7 @@ module.exports = function(RED) {
 						node.log(JSON.stringify(err));
 						//node.log(JSON.stringify(result));
 						node.log("stopped");
+						node.status({fill:"red",shape:"dot",text:"stopped"});
 					});
 					break;
 				default:
@@ -39,6 +80,7 @@ module.exports = function(RED) {
 						node.log(JSON.stringify(err));
 						//node.log(JSON.stringify(result));
 						node.log("playing");
+						node.status({fill:"green",shape:"dot",text:"playing"});
 					});
 			}
 			

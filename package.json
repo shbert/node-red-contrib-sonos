@@ -1,6 +1,6 @@
 {
 	"name"        : "node-red-contrib-sonos",
-	"version"     : "0.0.1",
+	"version"     : "0.0.3",
 	"description" : "Controlling SONOS Player",
 	"main"        : "index.js",
 	"author"      : "Robert Henjes",
@@ -14,7 +14,6 @@
 	"node-red": {
 		"nodes": {
 			"sonos-config"      : "sonos/sonos-config.js",
-			"sonos-play"        : "sonos/sonos-play.js",
 			"sonos-control"     : "sonos/sonos-control.js",
 			"sonos-currenttrack": "sonos/sonos-currenttrack.js"
 		}

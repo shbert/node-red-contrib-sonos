@@ -8,15 +8,6 @@
     </div>
 	
 	<div class="form-row">
-        <label for="node-input-mode"><i class="fa fa-play"></i> Mode</label>
-        <select type="text" id="node-input-mode" style="display: inline-block; width: 70%;">
-			<option value="play">Play</option>
-			<option value="pause">Pause</option>
-			<option value="stop">Stop</option>
-		</select>
-    </div>
-	
-	<div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="SONOS Play Node Name">
     </div>
@@ -35,7 +26,6 @@
         defaults: {    
             playnode: {value:"", type:"sonos-config"},
             name: {value:""},
-			mode: {value:"play", required:true}
         },
         inputs:1,               // set the number of inputs - only 0 or 1
         outputs:0,              // set the number of outputs - 0 to n
