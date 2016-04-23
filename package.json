@@ -1,0 +1,20 @@
+{
+    "name"         : "node-red-contrib-sonos",
+    "version"      : "0.0.1",
+    "description"  : "Controlling SONOS Player",
+    "dependencies": {
+    },
+	"author": "Robert Henjes",
+    "keywords": [ "node-red","sonos","music"],
+    "node-red"     : {
+        "nodes": {
+            "sonos-play": "sonos/sonos-play.js"
+        }
+    },
+	"repository": {
+	  "type": "git",
+	  "url": "https://
+	"dependencies": {
+	  "sonos": "0.12.0"
+	}
+}
