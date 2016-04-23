@@ -1,29 +1,29 @@
 {
-    "name"         : "node-red-contrib-sonos",
-    "version"      : "0.0.1",
-    "description"  : "Controlling SONOS Player",
-    "dependencies": {
-    },
-	"main": "index.js",
-	"author": "Robert Henjes",
+	"name"        : "node-red-contrib-sonos",
+	"version"     : "0.0.1",
+	"description" : "Controlling SONOS Player",
+	"main"        : "index.js",
+	"author"      : "Robert Henjes",
 	"contributors": [
-    {
-      "name": "Robert Henjes",
-      "email": "smarthome@rhenjes.de"
-    }
-    ],
-    "keywords": [ "node-red","sonos","music"],
-    "node-red"     : {
-        "nodes": {
-		    "sonos-config": "sonos/sonos-config.js",
-            "sonos-play": "sonos/sonos-play.js"
-        }
-    },
+	{
+		"name" : "Robert Henjes",
+		"email": "smarthome@rhenjes.de"
+	}
+	],
+	"keywords": [ "node-red","sonos","music"],
+	"node-red": {
+		"nodes": {
+			"sonos-config"      : "sonos/sonos-config.js",
+			"sonos-play"        : "sonos/sonos-play.js",
+			"sonos-control"     : "sonos/sonos-control.js",
+			"sonos-currenttrack": "sonos/sonos-currenttrack.js"
+		}
+	},
 	"repository": {
-	  "type": "git",
-	  "url": "https://github.com/shbert/node-red-contrib-sonos"
+		"type": "git",
+		"url" : "https://github.com/shbert/node-red-contrib-sonos"
 	},
 	"dependencies": {
-	  "sonos": "0.12.0"
+		"sonos": "0.12.0"
 	}
 }

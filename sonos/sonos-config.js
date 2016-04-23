@@ -1,9 +1,9 @@
 module.exports = function(RED) {
-    function SonosPlayerNode(n) {
-        RED.nodes.createNode(this,n);
-        this.ipaddress = n.ipaddress;
-        this.port = n.port;
+    function SonosPlayerNode(config) {
+        RED.nodes.createNode(this, config);
+        this.ipaddress = config.ipaddress;
+        this.port      = config.port;
     }
 
-    RED.nodes.registerType("sonos-player", SonosPlayerNode);
+    RED.nodes.registerType("sonos-config", SonosPlayerNode);
 }
