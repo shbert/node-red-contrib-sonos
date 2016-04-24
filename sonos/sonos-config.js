@@ -6,4 +6,4 @@ module.exports = function(RED) {
     }
 
     RED.nodes.registerType("sonos-config", SonosPlayerNode);
-}
+};
