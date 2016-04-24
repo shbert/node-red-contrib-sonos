@@ -37,7 +37,9 @@ module.exports = function(RED) {
 					case "pause":
 						client.pause(function(err, result) {
 							msg.payload = result;
-							node.log(JSON.stringify(err));
+							if (err) {
+								node.log(JSON.stringify(err));
+							};
 							//node.log(JSON.stringify(result));
 							node.log("paused");
 							node.status({fill:"red",shape:"ring",text:"paused"});
@@ -46,7 +48,9 @@ module.exports = function(RED) {
 					case "stop":
 						client.stop(function(err, result) {
 							msg.payload = result;
-							node.log(JSON.stringify(err));
+							if (err) {
+								node.log(JSON.stringify(err));
+							}
 							//node.log(JSON.stringify(result));
 							node.log("stopped");
 							node.status({fill:"red",shape:"ring",text:"stopped"});
@@ -55,7 +59,9 @@ module.exports = function(RED) {
 					default:
 						client.play(function(err, result) {
 							msg.payload = result;
-							node.log(JSON.stringify(err));
+							if (err) {
+								node.log(JSON.stringify(err));
+							}
 							//node.log(JSON.stringify(result));
 							node.log("playing");
 							node.status({fill:"green",shape:"ring",text:"playing"});
@@ -73,7 +79,9 @@ module.exports = function(RED) {
 					case "next":	
 						client.next(function(err, result) {
 							msg.payload = result;
-							node.log(JSON.stringify(err));
+							if (err) {
+								node.log(JSON.stringify(err));
+							}
 							//node.log(JSON.stringify(result));
 							node.log("next track requested");
 						});
@@ -81,7 +89,9 @@ module.exports = function(RED) {
 					case "previous":
 						client.previous(function(err, result) {
 							msg.payload = result;
-							node.log(JSON.stringify(err));
+							if (err) {
+								node.log(JSON.stringify(err));
+							}
 							//node.log(JSON.stringify(result));
 							node.log("previous track requested");
 						});
@@ -102,19 +112,25 @@ module.exports = function(RED) {
 				if (volume_val >= 0 && volume_val <= 100) { 
 					client.setVolume(String(_volume), function(err, result) {
 						msg.payload = result;
-						node.log(JSON.stringify(err));
+						if (err) {
+							node.log(JSON.stringify(err));
+						}
 						node.log("Volume changed to " + String(_volume));
 					});
 				} else if (_volume === "mute") {
 					client.setMuted(true, function(err, result) {
 						msg.payload = result;
-						node.log(JSON.stringify(err));
+						if (err) {
+							node.log(JSON.stringify(err));
+						}
 						node.log("Volume muted");
 					});
 				} else if (_volume === "unmute") {
 					client.setMuted(false, function(err, result) {
 						msg.payload = result;
-						node.log(JSON.stringify(err));
+						if (err) {
+							node.log(JSON.stringify(err));
+						}
 						node.log("Volume unmuted");
 					});
 				} else {

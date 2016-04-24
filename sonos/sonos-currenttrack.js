@@ -13,8 +13,7 @@ module.exports = function(RED) {
 		
 		var node = this;
         
-        this.on('input', function (msg) {
-			var playnode = RED.nodes.getNode(n.playnode);            
+        this.on('input', function (msg) {            
             var payload = typeof msg.payload === 'object' ? msg.payload : {};
 			
 			node.client.currentTrack(function (err, track) {
