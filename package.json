@@ -3,7 +3,8 @@
 	"version"     : "0.0.5",
 	"description" : "Controlling SONOS Player",
 	"main"        : "index.js",
-	"author"      : "Robert Henjes",
+	"author"      : "Robert Henjes <smarthome@rhenjes.de>",
+	"license"     : "MIT",
 	"contributors": [
 	{
 		"name" : "Robert Henjes",
@@ -23,7 +24,12 @@
 		"type": "git",
 		"url" : "https://github.com/shbert/node-red-contrib-sonos"
 	},
+	"bugs": {
+		"url": "https://github.com/shbert/node-red-contrib-sonos/issues"
+	},
+	"homepage": "http://flows.nodered.org/node/node-red-contrib-sonos",
 	"dependencies": {
+	    "jsbn": "^0.0.0",
 		"sonos": "0.12.0"
 	}
 }
