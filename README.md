@@ -32,7 +32,7 @@ Current Track - returns the currently played track
 
 Queue - controls one SONOS player, by reacting on a JSON payload.
 Available modes:
-* `"songuri":`<uri of the song to be queued>`
+* `"songuri":<uri of the song to be queued>`
 * `"position":0..<max_queue_length>,next`
 
 ```
