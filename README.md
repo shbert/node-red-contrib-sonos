@@ -4,6 +4,18 @@ A set of nodes to control SONOS via NodeRED. Uses the sonos [NPM Module](https:/
 
 Currently very early alpha version ... development ongoing.
 
+Open points / not tested yet:
+* manipulating playlists
+* zone configurations / grouping feature
+* controlling stereo and or surround configurations
+* automatic detection of play configuration
+
+Known issues:
+* status is only set according to input, not requested from player
+
+Planned upcoming features:
+* annoucement node (should play a jingle or a text to speech thing and then continue with current playlist)
+
 ## Installation
 
 `npm install node-red-contrib-sonos`
