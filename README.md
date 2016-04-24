@@ -10,8 +10,8 @@ Currently very early alpha version ... development ongoing.
 
 ## Implemented Nodes
 
-Play - just starts playing the current song in the corresponding Sonos player
+Control - controls one SONOS player, by reacting on a JSON payload. Available modes: "mode":play,pause,stop; "track":next,previous
 
 ```
-[{"id":"8daf587d.795bd8","type":"sonos-play","z":"cf7e64ed.43eed8","playnode":"","name":"","x":483,"y":134,"wires":[]},{"id":"485f55fe.867e4c","type":"inject","z":"cf7e64ed.43eed8","name":"","topic":"","payload":"","payloadType":"date","repeat":"","crontab":"","once":false,"x":250,"y":129,"wires":[["8daf587d.795bd8"]]}]
+[{"id":"5633ed23.863ce4","type":"inject","z":"cf7e64ed.43eed8","name":"","topic":"","payload":"{\"mode\":\"play\"}","payloadType":"json","repeat":"","crontab":"","once":false,"x":384,"y":902,"wires":[["405194b2.76386c"]]},{"id":"975103b.6a3eb","type":"inject","z":"cf7e64ed.43eed8","name":"","topic":"","payload":"{\"mode\":\"stop\"}","payloadType":"json","repeat":"","crontab":"","once":false,"x":377,"y":957,"wires":[["405194b2.76386c"]]},{"id":"9030486.2c905b8","type":"inject","z":"cf7e64ed.43eed8","name":"","topic":"","payload":"{\"mode\":\"pause\"}","payloadType":"json","repeat":"","crontab":"","once":false,"x":375,"y":1025,"wires":[["405194b2.76386c"]]},{"id":"dec0ad1a.c834a","type":"inject","z":"cf7e64ed.43eed8","name":"","topic":"","payload":"{\"track\":\"next\"}","payloadType":"json","repeat":"","crontab":"","once":false,"x":383,"y":1090,"wires":[["405194b2.76386c"]]},{"id":"9c7dd2ad.c3596","type":"inject","z":"cf7e64ed.43eed8","name":"","topic":"","payload":"{\"track\":\"previous\"}","payloadType":"json","repeat":"","crontab":"","once":false,"x":385,"y":1144,"wires":[["405194b2.76386c"]]},{"id":"405194b2.76386c","type":"sonos-control","z":"cf7e64ed.43eed8","playnode":"","name":"","x":635,"y":997,"wires":[]}]
 ```
