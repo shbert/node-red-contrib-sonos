@@ -38,6 +38,16 @@ module.exports = function(RED) {
 					}
 					node.log(JSON.stringify(result));
 				});
+			} else if (node.position === "directplay" || payload.position === "directplay") {
+				node.log("Direct play URI: " + _songuri);
+				node.client.play(_songuri, function (err, result) {
+					msg.payload = result;
+					node.send(msg);
+					if (err) {
+						node.log(JSON.stringify(err));
+					}
+					node.log(JSON.stringify(result));
+				});
 			} else {				
 				// Default is queueing to the end of a queue
 				var set_position = 0;
