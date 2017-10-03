@@ -100,42 +100,120 @@ module.exports = function(RED) {
 			}
 			// evaluate volume setting
 			if (payload.volume || node.volume) {
-				var _volume = node.volume;
+				var _volfkt;
+				var _volume;
 				if (payload.volume) {
 					node.log("Node setting overwritten by input: " + payload.volume);
-					_volume = payload.volume;
+					if (payload.volume === "vol_up") {
+					 _volfkt = "vol_up";
+					 _volume = payload.volstep;
+					 
+					} else if (payload.volume === "vol_down") {
+					 _volfkt = "vol_down";
+					 _volume = payload.volstep;
+					 	
+					} else if (payload.volume === "mute") {
+					 _volfkt = "mute";
+					 	
+					} else if (payload.volume === "unmute") {
+					 _volfkt = "unmute";
+					 	
+					} else {
+					 _volfkt = "vol_set";
+					 _volume = payload.volume;
+					 
+					}
+				
 				} else if (node.volume === "volume") {
 					node.log("Node setting overwritten by input: " + node.volume_value);
+					_volfkt = "vol_set";
 					_volume = node.volume_value;
+				} else if (node.volume === "vol_up") {
+					_volfkt = "vol_up";
+					_volume = node.volume_value;
+					 
+				} else if (node.volume === "vol_down") {
+					_volfkt = "vol_up";
+					_volume = node.volume_value;
+					
+				} else if (node.volume === "mute") {
+					_volfkt = "mute";
+					
+				} else if (node.volume === "unmute") {
+					_volfkt = "unmute";
+					
 				}
-				var volume_val = parseInt(_volume);
-				if (volume_val >= 0 && volume_val <= 100) { 
-					client.setVolume(String(_volume), function(err, result) {
-						msg.payload = result;
-						if (err) {
-							node.log(JSON.stringify(err));
-						}
-						node.log("Volume changed to " + String(_volume));
-					});
-				} else if (_volume === "mute") {
-					client.setMuted(true, function(err, result) {
+				
+				switch (_volfkt) {
+					case "vol_set":
+						var volume_val = parseInt(_volume);
+						if (volume_val >= 0 && volume_val <= 100) { 
+							client.setVolume(String(_volume), function(err, result) {
+							msg.payload = result;
+							if (err) {
+								node.log(JSON.stringify(err));
+							}
+							node.log("Volume changed to " + String(_volume));
+						})};
+						break;
+					case "mute":
+						client.setMuted(true, function(err, result) {
 						msg.payload = result;
 						if (err) {
 							node.log(JSON.stringify(err));
 						}
 						node.log("Volume muted");
-					});
-				} else if (_volume === "unmute") {
-					client.setMuted(false, function(err, result) {
+						});
+						break;
+					case "unmute":
+						client.setMuted(false, function(err, result) {
 						msg.payload = result;
 						if (err) {
 							node.log(JSON.stringify(err));
 						}
 						node.log("Volume unmuted");
-					});
-				} else {
-					node.log("Illegal volume value requested: " + String(_volume));
-				}
+						});
+						break;
+					case "vol_up":
+						var volume_step = parseInt(_volume);
+						if (volume_step > 100 || volume_step === 0) {
+							volume_step = 1;
+						}
+						client.getVolume(function (err, currentvol) {
+						 var volume_val = parseInt(currentvol) + volume_step;
+						 if (err) {
+								node.log(JSON.stringify(err));
+							}
+						 if (volume_val >= 0 && volume_val <= 100) { 
+							client.setVolume(String(volume_val), function(err, result) {
+							msg.payload = result;
+							if (err) {
+								node.log(JSON.stringify(err));
+							}
+							node.log("Volume changed to " + String(_volume));
+						});}});
+						break;
+					case "vol_down":
+						var volume_step = parseInt(_volume);
+						if (volume_step > 100 || volume_step === 0) {
+							volume_step = 1;
+						}
+						client.getVolume(function (err, currentvol) {
+						 var volume_val = parseInt(currentvol) - volume_step;
+						 if (err) {
+								node.log(JSON.stringify(err));
+							}
+						 if (volume_val >= 0 && volume_val <= 100) { 
+							client.setVolume(String(volume_val), function(err, result) {
+							msg.payload = result;
+							if (err) {
+								node.log(JSON.stringify(err));
+							}
+							node.log("Volume changed to " + String(_volume));
+						});}});
+					}
+					
+
 			}
 			
 			node.send(msg);
