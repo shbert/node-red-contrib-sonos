@@ -1,0 +1,41 @@
+<!-- Sonos Get CurrentVol Node -->
+<!-- just returns the current volume from a specific SONOS player -->
+
+<!-- Registering Sonos CurrentVol Node -->
+<script type="text/javascript">
+	RED.nodes.registerType('sonos-currentvol',{
+        category: 'Sonos',
+        defaults: {    
+            playnode: {value:"", type:"sonos-config"},
+            name: {value:""}
+        },
+        inputs:1,               // set the number of inputs - only 0 or 1
+        outputs:1,              // set the number of outputs - 0 to n
+        icon: "bridge.png",     // saved in  icons/myicon.png
+        color: "#E2D96E", 
+        label: function() {
+            return this.name || "Sonos current track";
+        },
+        paletteLabel: "Current Volume"
+        
+    });
+</script>
+
+<!-- Setting design and inputs for node -->
+<script type="text/x-red" data-template-name="sonos-currentvol">
+	<div class="form-row">
+        <label for="node-input-playnode"> SONOS Play Node</label>
+        <input type="text" id="node-input-playnode">
+    </div>
+
+	<div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="SONOS Play Node Name">
+    </div>	
+</script>
+
+
+<!-- Simple Help Text -->
+<script type="text/x-red" data-help-name="sonos-currentvol">
+	<p>A node to retrieve current volume upon trigger</p>
+</script>

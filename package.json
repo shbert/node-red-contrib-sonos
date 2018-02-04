@@ -1,35 +1,69 @@
 {
-	"name"        : "node-red-contrib-sonos",
-	"version"     : "0.0.7",
-	"description" : "Controlling SONOS Player",
-	"main"        : "index.js",
-	"author"      : "Robert Henjes <smarthome@rhenjes.de>",
-	"license"     : "MIT",
-	"contributors": [
-	{
-		"name" : "Robert Henjes",
-		"email": "smarthome@rhenjes.de"
-	}
-	],
-	"keywords": [ "node-red","sonos","music"],
-	"node-red": {
-		"nodes": {
-			"sonos-config"      : "sonos/sonos-config.js",
-			"sonos-control"     : "sonos/sonos-control.js",
-			"sonos-currenttrack": "sonos/sonos-currenttrack.js",
-			"sonos-queue"       : "sonos/sonos-queue.js"
-		}
-	},
-	"repository": {
-		"type": "git",
-		"url" : "https://github.com/shbert/node-red-contrib-sonos"
-	},
-	"bugs": {
-		"url": "https://github.com/shbert/node-red-contrib-sonos/issues"
-	},
-	"homepage": "http://flows.nodered.org/node/node-red-contrib-sonos",
-	"dependencies": {
-		"jsbn": "^0.0.0",
-		"sonos": "0.14.1"
-	}
+  "_from": "node-red-contrib-sonos@0.0.7",
+  "_id": "node-red-contrib-sonos@0.0.7",
+  "_inBundle": false,
+  "_integrity": "sha1-7Qcu/UfjhpIWTX3CKGeSpeVzpg0=",
+  "_location": "/node-red-contrib-sonos",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "node-red-contrib-sonos@0.0.7",
+    "name": "node-red-contrib-sonos",
+    "escapedName": "node-red-contrib-sonos",
+    "rawSpec": "0.0.7",
+    "saveSpec": null,
+    "fetchSpec": "0.0.7"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/node-red-contrib-sonos/-/node-red-contrib-sonos-0.0.7.tgz",
+  "_shasum": "ed072efd47e38692164d7dc2286792a5e573a60d",
+  "_spec": "node-red-contrib-sonos@0.0.7",
+  "_where": "/home/pi/.node-red",
+  "author": {
+    "name": "Robert Henjes",
+    "email": "smarthome@rhenjes.de"
+  },
+  "bugs": {
+    "url": "https://github.com/shbert/node-red-contrib-sonos/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Robert Henjes",
+      "email": "smarthome@rhenjes.de"
+    }
+  ],
+  "dependencies": {
+    "jsbn": "^0.0.0",
+    "sonos": "0.14.1"
+  },
+  "deprecated": false,
+  "description": "Controlling SONOS Player",
+  "homepage": "http://flows.nodered.org/node/node-red-contrib-sonos",
+  "keywords": [
+    "node-red",
+    "sonos",
+    "music"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "node-red-contrib-sonos",
+  "node-red": {
+    "nodes": {
+      "sonos-config": "sonos/sonos-config.js",
+      "sonos-control": "sonos/sonos-control.js",
+      "sonos-currenttrack": "sonos/sonos-currenttrack.js",
+      "sonos-queue": "sonos/sonos-queue.js",
+      "sonos-currentvol": "sonos/sonos-currentvol.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shbert/node-red-contrib-sonos.git"
+  },
+  "version": "0.0.7"
 }
