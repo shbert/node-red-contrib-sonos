@@ -48,6 +48,16 @@ module.exports = function(RED) {
 					}
 					node.log(JSON.stringify(result));
 				});
+			} else if (node.position === "tuneinradio" || payload.position === "tuneinradio") {
+				node.log("Play TuneIn Radio: " + _songuri);
+				node.client.playTuneinRadio(_songuri, function (err, result) {
+					msg.payload = result;
+					node.send(msg);
+					if (err) {
+						node.log(JSON.stringify(err));
+					}
+					node.log(JSON.stringify(result));
+				});
 			} else {				
 				// Default is queueing to the end of a queue
 				var set_position = 0;
