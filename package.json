@@ -39,7 +39,7 @@
   ],
   "dependencies": {
     "jsbn": "^0.0.0",
-    "sonos": "0.14.1"
+    "sonos": ">=1.0.2"
   },
   "deprecated": false,
   "description": "Controlling SONOS Player",
@@ -65,5 +65,5 @@
     "type": "git",
     "url": "git+https://github.com/shbert/node-red-contrib-sonos.git"
   },
-  "version": "0.0.7"
+  "version": "0.0.8"
 }
