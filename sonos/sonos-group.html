@@ -1,0 +1,43 @@
+<!-- Sonos Group Node -->
+<!-- provides join and leave function for groups -->
+
+<!-- Registering Sonos CurrentTrack Node -->
+<script type="text/javascript">
+	RED.nodes.registerType('sonos-group',{
+        category: 'Sonos',
+        defaults: {
+            playnode: {value:"", type:"sonos-config"},
+						otherNode: {value:""},
+						action: {value:""},
+            name: {value:""}
+        },
+        inputs:1,               // set the number of inputs - only 0 or 1
+        outputs:0,              // set the number of outputs - 0 to n
+        icon: "bridge.png",     // saved in  icons/myicon.png
+        color: "#E2D96E",
+        label: function() {
+            return this.name || "Sonos group";
+        },
+        paletteLabel: "Group"
+
+    });
+</script>
+
+<!-- Setting design and inputs for node -->
+<script type="text/x-red" data-template-name="sonos-group">
+	<div class="form-row">
+        <label for="node-input-playnode"> SONOS Play Master</label>
+        <input type="text" id="node-input-playnode">
+    </div>
+
+	<div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="SONOS Play Master Name">
+    </div>
+</script>
+
+
+<!-- Simple Help Text -->
+<script type="text/x-red" data-help-name="sonos-group">
+	<p>A node to merge or remove other nodes to this master node.</p>
+</script>

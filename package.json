@@ -39,7 +39,8 @@
   ],
   "dependencies": {
     "jsbn": "^0.0.0",
-    "sonos": ">=1.0.2"
+    "sonos": ">=1.0.2",
+    "promise": "^8.0.1"
   },
   "deprecated": false,
   "description": "Controlling SONOS Player",
@@ -58,12 +59,13 @@
       "sonos-control": "sonos/sonos-control.js",
       "sonos-currenttrack": "sonos/sonos-currenttrack.js",
       "sonos-queue": "sonos/sonos-queue.js",
-      "sonos-currentvol": "sonos/sonos-currentvol.js"
+      "sonos-currentvol": "sonos/sonos-currentvol.js",
+      "sonos-group": "sonos/sonos-group.js"
     }
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shbert/node-red-contrib-sonos.git"
   },
-  "version": "0.0.8"
+  "version": "0.0.9"
 }
