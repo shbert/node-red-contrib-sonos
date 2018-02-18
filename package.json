@@ -39,7 +39,7 @@
   ],
   "dependencies": {
     "jsbn": "^0.0.0",
-    "sonos": "1.0.2"
+    "sonos": ">=1.0.2"
   },
   "deprecated": false,
   "description": "Controlling SONOS Player",
