@@ -14,7 +14,7 @@ module.exports = function(RED) {
 
 		var node = this;
 
-        this.on('input', function (msg) {
+    this.on('input', function (msg) {
             var payload = typeof msg.payload === 'object' ? msg.payload : {};
 
       node.client.currentTrack().then((track) => {
