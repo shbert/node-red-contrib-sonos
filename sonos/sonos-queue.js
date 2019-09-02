@@ -49,8 +49,9 @@ module.exports = function(RED) {
         payload.position === "directplay"
       ) {
         node.log("Direct play URI: " + _songuri);
+        //.play(_songuri)
         node.client
-          .play(_songuri)
+          .setAVTransportURI(_songuri)
           .then(result => {
             //node.client.play(_songuri, function (err, result) {
             msg.payload = result;
