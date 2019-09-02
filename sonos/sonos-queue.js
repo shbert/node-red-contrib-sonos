@@ -97,7 +97,7 @@ module.exports = function(RED) {
         // Queue song now
         node.log("Queuing at " + set_position + " URI: " + _songuri);
         node.client
-          .queue(_songuri, set_position)
+          .queue(Helpers.GenerateLocalMetadata(_songuri, ''), set_position)
           .then(result => {
             //node.client.queue(_songuri, set_position, function (err, result) {
             msg.payload = result;
