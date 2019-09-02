@@ -67,5 +67,5 @@
     "type": "git",
     "url": "git+https://github.com/shbert/node-red-contrib-sonos.git"
   },
-  "version": "0.0.9"
+  "version": "0.0.10"
 }
