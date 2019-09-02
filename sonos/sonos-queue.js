@@ -1,5 +1,5 @@
 // Sonos Queue Song
-var sonos = require("sonos");
+const { Sonos } = require("sonos");
 var Promise = require("promise");
 
 module.exports = function(RED) {
@@ -9,7 +9,7 @@ module.exports = function(RED) {
     RED.nodes.createNode(this, n);
 
     var playnode = RED.nodes.getNode(n.playnode);
-    this.client = new sonos.Sonos(playnode.ipaddress);
+    this.client = new Sonos(playnode.ipaddress);
 
     this.songuri = n.songuri;
     this.position = n.position;

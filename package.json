@@ -30,7 +30,7 @@
   "bugs": {
     "url": "https://github.com/shbert/node-red-contrib-sonos/issues"
   },
-  "bundleDependencies": false,
+  "bundleDependencies": [],
   "contributors": [
     {
       "name": "Robert Henjes",
