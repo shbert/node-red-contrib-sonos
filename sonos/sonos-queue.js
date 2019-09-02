@@ -1,5 +1,5 @@
 // Sonos Queue Song
-const { Sonos } = require("sonos");
+const { Sonos, Helpers } = require("sonos");
 var Promise = require("promise");
 
 module.exports = function(RED) {
@@ -31,7 +31,7 @@ module.exports = function(RED) {
       if (node.position === "next" || payload.position === "next") {
         node.log("Queueing URI next: " + _songuri);
         node.client
-          .queueNext(node.client.Helpers.GenerateLocalMetadata(_songuri, ''))
+          .queueNext(Helpers.GenerateLocalMetadata(_songuri, ''))
           .then(result => {
             //node.client.queueNext(_songuri, function (err, result) {
             msg.payload = result;
