@@ -31,7 +31,7 @@ module.exports = function(RED) {
       if (node.position === "next" || payload.position === "next") {
         node.log("Queueing URI next: " + _songuri);
         node.client
-          .queueNext(_songuri)
+          .queueNext(node.client.Helpers.GenerateLocalMetadata(_songuri, ''))
           .then(result => {
             //node.client.queueNext(_songuri, function (err, result) {
             msg.payload = result;
