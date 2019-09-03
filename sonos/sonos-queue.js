@@ -1,5 +1,5 @@
 // Sonos Queue Song
-var sonos = require("sonos");
+const { Sonos, Helpers } = require("sonos");
 var Promise = require("promise");
 
 module.exports = function(RED) {
@@ -9,7 +9,7 @@ module.exports = function(RED) {
     RED.nodes.createNode(this, n);
 
     var playnode = RED.nodes.getNode(n.playnode);
-    this.client = new sonos.Sonos(playnode.ipaddress);
+    this.client = new Sonos(playnode.ipaddress);
 
     this.songuri = n.songuri;
     this.position = n.position;
@@ -31,7 +31,7 @@ module.exports = function(RED) {
       if (node.position === "next" || payload.position === "next") {
         node.log("Queueing URI next: " + _songuri);
         node.client
-          .queueNext(_songuri)
+          .queue(Helpers.GenerateLocalMetadata(_songuri, ''),0)
           .then(result => {
             //node.client.queueNext(_songuri, function (err, result) {
             msg.payload = result;
@@ -49,8 +49,9 @@ module.exports = function(RED) {
         payload.position === "directplay"
       ) {
         node.log("Direct play URI: " + _songuri);
+        //.play(_songuri)
         node.client
-          .play(_songuri)
+          .setAVTransportURI(_songuri)
           .then(result => {
             //node.client.play(_songuri, function (err, result) {
             msg.payload = result;
@@ -96,7 +97,7 @@ module.exports = function(RED) {
         // Queue song now
         node.log("Queuing at " + set_position + " URI: " + _songuri);
         node.client
-          .queue(_songuri, set_position)
+          .queue(Helpers.GenerateLocalMetadata(_songuri, ''), set_position)
           .then(result => {
             //node.client.queue(_songuri, set_position, function (err, result) {
             msg.payload = result;

@@ -11,6 +11,7 @@ Open points / not tested yet:
 * automatic detection of play configuration
 
 Known issues:
+* Queue behavior changed, fixed quick and dirty the functions, please raise issues in case something is not working as expected.
 * status is only set according to input, not requested from player
 
 Planned upcoming features:
