@@ -38,10 +38,8 @@
     }
   ],
   "dependencies": {
-    "jsbn": "^1.1.0",
     "promise": "^8.1.0",
-    "sonos": ">=1.14.1",
-    "update": "^0.7.4"
+    "sonos": ">=1.14.1"
   },
   "deprecated": "This package is no longer maintained. Please use any other node-red sonos package. Thanks for using up to now.",
   "description": "Controlling SONOS Player",
