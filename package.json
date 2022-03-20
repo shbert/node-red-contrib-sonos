@@ -43,7 +43,7 @@
     "sonos": ">=1.14.1",
     "update": "^0.7.4"
   },
-  "deprecated": false,
+  "deprecated": "This package is no longer maintained. Please use any other node-red sonos package. Thanks for using up to now.",
   "description": "Controlling SONOS Player",
   "homepage": "http://flows.nodered.org/node/node-red-contrib-sonos",
   "keywords": [
