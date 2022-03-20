@@ -1,6 +1,5 @@
 {
   "_from": "node-red-contrib-sonos@0.0.7",
-  "_id": "node-red-contrib-sonos@0.0.7",
   "_inBundle": false,
   "_integrity": "sha1-7Qcu/UfjhpIWTX3CKGeSpeVzpg0=",
   "_location": "/node-red-contrib-sonos",
@@ -66,5 +65,5 @@
     "type": "git",
     "url": "git+https://github.com/shbert/node-red-contrib-sonos.git"
   },
-  "version": "0.0.12"
+  "version": "0.0.13"
 }
